@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{7FA4409B-A178-EBAA-95CD-A2428E175666}</ProjectGuid>
+    <ProjectGuid>{9C125309-BDC9-49F7-C522-59B3AA4A6D6A}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.2D.IK.Runtime</AssemblyName>
@@ -734,7 +734,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.InternalAPIEngineBridge.001.csproj">
-      <Project>{8E0B0DFF-0504-CEC4-00E7-842D4B84EB3E}</Project>
+      <Project>{3AC187D1-CBF7-5438-57E8-0EF59866F6FD}</Project>
       <Name>Unity.InternalAPIEngineBridge.001</Name>
     </ProjectReference>
   </ItemGroup>

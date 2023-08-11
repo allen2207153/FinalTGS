@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{78728AED-DAC0-D5F9-2DF5-E3065E046F2D}</ProjectGuid>
+    <ProjectGuid>{81F09BBC-0F6E-BC7B-0D5A-DCBDD86CF63E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.VisualScripting.State</AssemblyName>
@@ -751,11 +751,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.VisualScripting.Core.csproj">
-      <Project>{BC222F53-790E-3DCA-52B1-1A8428A8E793}</Project>
+      <Project>{06C7E44A-840D-3A89-2A31-A86E322E8944}</Project>
       <Name>Unity.VisualScripting.Core</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.VisualScripting.Flow.csproj">
-      <Project>{58CB6652-8A3B-143D-6D74-9F564617F088}</Project>
+      <Project>{72DEB844-0225-CE71-F744-8E2639616575}</Project>
       <Name>Unity.VisualScripting.Flow</Name>
     </ProjectReference>
   </ItemGroup>
