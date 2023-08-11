@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{BAF63FB2-2334-2A97-C6CC-30E620E92B26}</ProjectGuid>
+    <ProjectGuid>{96B12AD0-FCFB-6E8F-1D6E-E449B54EC01E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Unity.Collections.BurstCompatibilityGen</AssemblyName>
@@ -736,19 +736,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Burst.csproj">
-      <Project>{24651706-F8F7-C0E4-5C77-04C5B714FD06}</Project>
+      <Project>{2EB112B2-8E9D-4D28-8DAC-AD15036BB336}</Project>
       <Name>Unity.Burst</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.Collections.csproj">
-      <Project>{30036232-F539-9869-49E9-EDA7B5FF66D9}</Project>
+      <Project>{5946C5A3-A5E3-6243-5C9E-E877B0A03589}</Project>
       <Name>Unity.Collections</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEditor.TestRunner.csproj">
-      <Project>{12A7EA46-FDC1-E969-9D4A-DB83C99F991F}</Project>
+      <Project>{E676506E-F077-331F-198B-DCC56D173F52}</Project>
       <Name>UnityEditor.TestRunner</Name>
     </ProjectReference>
     <ProjectReference Include="UnityEngine.TestRunner.csproj">
-      <Project>{B5247CEC-140D-5C2B-A097-00E09766C109}</Project>
+      <Project>{839D7E03-C425-B739-FB2F-D34B9ABB651D}</Project>
       <Name>UnityEngine.TestRunner</Name>
     </ProjectReference>
   </ItemGroup>
