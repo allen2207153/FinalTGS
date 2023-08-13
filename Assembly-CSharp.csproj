@@ -59,7 +59,6 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Script\CameraFollow.cs" />
-    <Compile Include="Assets\Script\Enemy\Boss.cs" />
     <Compile Include="Assets\Script\Dialogue.cs" />
     <Compile Include="Assets\Script\Parallax.cs" />
     <Compile Include="Assets\Script\CameraTransition.cs" />
@@ -98,6 +97,7 @@
     <Compile Include="Assets\Script\Player\PlayerAttack.cs" />
     <Compile Include="Assets\Script\item\UnlockSkill.cs" />
     <Compile Include="Assets\TEst.cs" />
+    <Compile Include="Assets\Script\Enemy\BossPeacock.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

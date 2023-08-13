@@ -61,7 +61,7 @@ public class PlayerAttack : MonoBehaviour
         }
         if (other.gameObject.CompareTag("Boss"))
         {
-            other.GetComponent<Boss>().TakeDamage(damage);
+            other.GetComponent<BossPeacock>().TakeDamage(damage);
         }
 
 
