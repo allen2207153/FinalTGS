@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{206E9541-CD3E-33DB-10CE-58459FEA9766}</ProjectGuid>
+    <ProjectGuid>{862FA178-4D27-67A7-1E00-2B23E03B667F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Cinemachine</AssemblyName>
@@ -800,11 +800,11 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Unity.Timeline.csproj">
-      <Project>{9856F940-A225-FC34-CB1A-C0AFDD28A33B}</Project>
+      <Project>{D8E8321D-D5C5-647F-F3DA-0FFBAA3D9DA1}</Project>
       <Name>Unity.Timeline</Name>
     </ProjectReference>
     <ProjectReference Include="Unity.2D.PixelPerfect.csproj">
-      <Project>{8AC17978-8567-B1FA-8A9D-7BEEA4FD24E7}</Project>
+      <Project>{FF080FA7-09BA-7A12-5D9E-5B8C09FA6523}</Project>
       <Name>Unity.2D.PixelPerfect</Name>
     </ProjectReference>
   </ItemGroup>
