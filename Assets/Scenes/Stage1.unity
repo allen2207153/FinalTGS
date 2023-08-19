@@ -1032,9 +1032,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1654552615623890721, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.047
+      objectReference: {fileID: 0}
+    - target: {fileID: 1654552615623890721, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.006
+      objectReference: {fileID: 0}
     - target: {fileID: 3735068333496824201, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5747303292129678746, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5940712220419532192, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
       propertyPath: m_RootOrder
@@ -1042,11 +1054,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5940712220419532192, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 338.98
+      value: 342.8
       objectReference: {fileID: 0}
     - target: {fileID: 5940712220419532192, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -215.38
+      value: -218.2
       objectReference: {fileID: 0}
     - target: {fileID: 5940712220419532192, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1083,6 +1095,22 @@ PrefabInstance:
     - target: {fileID: 6816393726160083870, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
       propertyPath: m_GravityScale
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266957733263181038, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: time
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266957733263181038, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: startTime
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266957733263181038, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: attackRate
+      value: 0.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 7266957733263181038, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: attackTime
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 8470903237713150729, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
       propertyPath: m_Name

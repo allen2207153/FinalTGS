@@ -7,6 +7,8 @@ public class PlayerAttack : MonoBehaviour
     public int damage;
     public float time;
     public float startTime;
+    public float attackRate = 0.25f;
+    public float attackTime = 0.5f;
     private Animator anim;
     private PolygonCollider2D collider2D;
     GameObject player;
@@ -22,17 +24,30 @@ public class PlayerAttack : MonoBehaviour
     void Update()
     {
             Attack();
+        if (attackRate < attackTime)
+        {
+            attackRate += Time.deltaTime;
+        }
     }
     void Attack()
     {
+       
         if (Input.GetButtonDown("Attack") && anim.GetBool("isDead") !=true)
         {
-            StartCoroutine(StartAttack());
-            collider2D.enabled = true;
-            anim.SetTrigger("Attack");
-            anim.SetBool("isAttack", true);
-           
+            
+            if (attackRate >= attackTime)
+            {
+                StartCoroutine(StartAttack());
+                anim.SetTrigger("Attack");
+                anim.SetBool("isAttack", true);
+                attackRate = 0;
+               
+            }
+
+            
         }
+      
+            
     }
 
 
