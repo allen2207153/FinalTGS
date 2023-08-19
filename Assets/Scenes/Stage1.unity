@@ -1032,6 +1032,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 475008338322736306, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: Data
+      value: 
+      objectReference: {fileID: 11400000, guid: 8529d6c7678736d4692cc8e5c3e9c44e, type: 2}
+    - target: {fileID: 475008338322736306, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: gravity
+      value: -400
+      objectReference: {fileID: 0}
+    - target: {fileID: 475008338322736306, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: jumpForce
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 475008338322736306, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: groundHeight
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 475008338322736306, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: jumpStartTime
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 1654552615623890721, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
       propertyPath: m_LocalPosition.x
       value: -0.047
@@ -1093,8 +1113,16 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6816393726160083870, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: m_Mass
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816393726160083870, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
       propertyPath: m_GravityScale
-      value: 3
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6816393726160083870, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
+      propertyPath: m_SleepingMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7266957733263181038, guid: cdb0a703e8c3e4a47ab91a50d79d0fed, type: 3}
       propertyPath: time

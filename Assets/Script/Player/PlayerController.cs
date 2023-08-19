@@ -5,13 +5,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    public float jumpSpeed;
+    public float jumpForce;
     public float climbSpeed;
     private Rigidbody2D rb;
     private Animator anim;
     private CircleCollider2D myfeet;
     public bool isGround;
-    public int delayTime;
 
 
 
@@ -42,6 +41,9 @@ public class PlayerController : MonoBehaviour
     bool freezePlayer;
 
     RigidbodyConstraints2D rb2dConstraints;
+
+    private float jumpTime;
+    public float jumpStartTime;
 
     void Start()
     {
@@ -130,12 +132,29 @@ public class PlayerController : MonoBehaviour
         if (freezeInput==false)
         {
             if (Input.GetButtonDown("Jump")&&isGround == true )
-         {
+            {
                  anim.SetBool("Jump", true);
-                 Vector2 jumpVel = new Vector2(0.0f, jumpSpeed);
-                 rb.velocity = Vector2.up * jumpVel; 
-         }
+                rb.velocity = Vector2.up * jumpForce;
+                isJumping = true;
+                jumpTime = jumpStartTime;
             }
+            if(Input.GetButtonDown("Jump") && isJumping == true)
+            {
+                if(jumpTime > 0) 
+                {
+                    rb.velocity  = rb.velocity = Vector2.up * jumpForce;
+                    jumpTime -= Time.deltaTime;
+                }
+                else
+                {
+                    isJumping = false;
+                }
+            }
+            if(Input.GetButtonUp("Jump"))
+            {
+                isJumping = false;
+            }
+         }
      }
     void coyote()
     {
@@ -159,7 +178,7 @@ public class PlayerController : MonoBehaviour
 
         if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f && !isJumping)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpSpeed);
+            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
 
             jumpBufferCounter = 0f;
 
