@@ -5,7 +5,6 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
     public float speed;
-    public float jumpForce;
     public float climbSpeed;
     private Rigidbody2D rb;
     private Animator anim;
@@ -42,9 +41,16 @@ public class PlayerController : MonoBehaviour
 
     RigidbodyConstraints2D rb2dConstraints;
 
-    private float jumpTime;
-    public float jumpStartTime;
+    float buttonPressedTime;
+    float buttonPressWindow;
+    private bool jumpCancelled;
 
+
+    [SerializeField] float jumpHeight = 5;
+    [SerializeField] float gravityScale = 5;
+    [SerializeField] float fallGravityScale = 15;
+
+    public float drillForce = 800;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -95,6 +101,7 @@ public class PlayerController : MonoBehaviour
      {
          downAttackForce();
 
+      
      }
 
      void Run(Vector2 dir)
@@ -134,30 +141,32 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump")&&isGround == true )
             {
                  anim.SetBool("Jump", true);
-                rb.velocity = Vector2.up * jumpForce;
+                rb.gravityScale = gravityScale;
+                float jumpForce = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * rb.gravityScale) * -2) * rb.mass;
+                rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
                 isJumping = true;
-                jumpTime = jumpStartTime;
+                buttonPressedTime = 0;
             }
-            if(Input.GetButtonDown("Jump") && isJumping == true)
+            if(isJumping)
             {
-                if(jumpTime > 0) 
+                buttonPressedTime +=Time.deltaTime;
+
+                if(buttonPressedTime <buttonPressWindow && Input.GetButtonDown("Jump"))
                 {
-                    rb.velocity  = rb.velocity = Vector2.up * jumpForce;
-                    jumpTime -= Time.deltaTime;
+                    jumpCancelled = true;
                 }
-                else
+                if(rb.velocity.y <0)
                 {
-                    isJumping = false;
+                    rb.gravityScale = fallGravityScale;
+                    isJumping=false;
                 }
             }
-            if(Input.GetButtonUp("Jump"))
-            {
-                isJumping = false;
-            }
+                
          }
      }
     void coyote()
     {
+        float jumpForce = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * rb.gravityScale) * -2) * rb.mass;
         if (isGround ||isOneWayPlatform)
         {
             coyoteTimeCounter = coyoteTime;
@@ -277,7 +286,7 @@ public class PlayerController : MonoBehaviour
             if (c != null)
             {
                 rb.velocity = new Vector2(rb.velocity.x, 0);
-                rb.AddForce(new Vector2(0, 800));
+                rb.AddForce(new Vector2(0, drillForce));
                 GetComponent<Better>().fallMultiplier = 2f;
                 GetComponent<Better>().lowJumpMultiplier = 2f;
   
