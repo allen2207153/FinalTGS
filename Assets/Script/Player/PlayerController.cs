@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     private CircleCollider2D myfeet;
     public bool isGround;
 
-
+    [SerializeField] Vector2 boxSize;
 
     [Header("Knockback")]
     [SerializeField] private Transform center;
@@ -282,7 +282,7 @@ public class PlayerController : MonoBehaviour
     {
         if (anim.GetCurrentAnimatorStateInfo(0).IsName("downAttack"))
         {
-            Collider2D c = Physics2D.OverlapBox(downHitBox.position, new Vector2(0.23f, 0.1f), 0f, LayerMask.GetMask("Enemy") | LayerMask.GetMask("Rock") | LayerMask.GetMask("latern")) ;
+            Collider2D c = Physics2D.OverlapBox(downHitBox.position, boxSize, 0f, LayerMask.GetMask("Enemy") | LayerMask.GetMask("Rock") | LayerMask.GetMask("latern")) ;
             if (c != null)
             {
                 rb.velocity = new Vector2(rb.velocity.x, 0);
@@ -292,10 +292,7 @@ public class PlayerController : MonoBehaviour
   
             }
         }
-        else
-        {
-
-        }
+      
     }
     
     
@@ -363,8 +360,13 @@ public class PlayerController : MonoBehaviour
             rb.constraints = rb2dConstraints;
         }
     }
-  
-   
+    private void OnDrawGizmosSelected()
+    {
+        
+        Gizmos.color = Color.green;
+        Gizmos.DrawCube(downHitBox.position, boxSize);
+    }
+
 }
 
 
