@@ -16,8 +16,8 @@ public class HealthItem : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.gameObject.CompareTag("Player") &&
-            other.GetType().ToString() == "UnityEngine.CapsuleCollider2D")
+        if (other.gameObject.CompareTag("Player")
+           )
         {
             playerHealth.health += 1;
             OnPlayerHeal?.Invoke();
