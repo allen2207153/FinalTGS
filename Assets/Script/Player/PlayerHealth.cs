@@ -18,6 +18,7 @@ public class PlayerHealth : MonoBehaviour
     private Animator anim;
     public static event Action OnPlayerDamaged;
 
+    public bool isGround;
 
     void Start()
     {
@@ -80,10 +81,14 @@ public class PlayerHealth : MonoBehaviour
     }
     void Death()
     {
-        Physics2D.IgnoreLayerCollision(9, 10, true);
-        anim.SetTrigger("Death");
-        anim.SetBool("isDead", true);
+        isGround = GetComponent<PlayerController>().isGround;
+       
+            Physics2D.IgnoreLayerCollision(9, 10, true);
+            anim.SetTrigger("Death");
+            anim.SetBool("isDead", true);
             StartCoroutine(restart());
+        
+        
         }
     IEnumerator restart()
     {

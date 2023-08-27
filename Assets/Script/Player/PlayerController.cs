@@ -41,8 +41,8 @@ public class PlayerController : MonoBehaviour
 
     RigidbodyConstraints2D rb2dConstraints;
 
-    float buttonPressedTime;
-    float buttonPressWindow;
+     [SerializeField] float buttonPressedTime;
+    [SerializeField] float buttonPressWindow;
     private bool jumpCancelled;
 
 
@@ -67,10 +67,10 @@ public class PlayerController : MonoBehaviour
         float moveDirY = Input.GetAxis("Vertical");
         Vector2 dir = new Vector2(moveDirX, moveDirY);
         PlayerHealth playerHealth = GetComponent<PlayerHealth>();
-        if (playerHealth.health <=0)
+        if (playerHealth.health <=0 &&isGround)
         {
             freezeInput = true;
-            FreezePlayer(true);
+            rb.velocity = Vector3.zero;
         }
         Flip();
         if(freezeInput == false ) 
@@ -138,7 +138,7 @@ public class PlayerController : MonoBehaviour
      {
         if (freezeInput==false)
         {
-            if (Input.GetButtonDown("Jump")&&isGround == true )
+            if (Input.GetButtonDown("Jump")&&isGround && rb.velocity.y < 0.01f)
             {
                  anim.SetBool("Jump", true);
                 rb.gravityScale = gravityScale;
@@ -155,7 +155,7 @@ public class PlayerController : MonoBehaviour
                 {
                     jumpCancelled = true;
                 }
-                if(rb.velocity.y <0)
+                if(rb.velocity.y <0 || buttonPressedTime>buttonPressWindow)
                 {
                     rb.gravityScale = fallGravityScale;
                     isJumping=false;
@@ -166,7 +166,7 @@ public class PlayerController : MonoBehaviour
      }
     void coyote()
     {
-        float jumpForce = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * rb.gravityScale) * -2) * rb.mass;
+       
         if (isGround ||isOneWayPlatform)
         {
             coyoteTimeCounter = coyoteTime;
@@ -187,7 +187,7 @@ public class PlayerController : MonoBehaviour
 
         if (coyoteTimeCounter > 0f && jumpBufferCounter > 0f && !isJumping)
         {
-            rb.velocity = new Vector2(rb.velocity.x, jumpForce);
+
 
             jumpBufferCounter = 0f;
 
@@ -298,15 +298,16 @@ public class PlayerController : MonoBehaviour
     
     void OneWayPlatformCheck()
     {
-            if(isGround&& gameObject.layer != LayerMask.NameToLayer("Player"))
+        if (isGround && gameObject.layer != LayerMask.NameToLayer("Player"))
         {
             gameObject.layer = LayerMask.NameToLayer("Player");
         }
-            float moveY = Input.GetAxis("Vertical");
-                if(isOneWayPlatform && moveY <-0.1f)
+
+        float moveY = Input.GetAxis("Vertical");
+        if (isOneWayPlatform && moveY < -0.1f)
         {
             gameObject.layer = LayerMask.NameToLayer("OneWayPlatform");
-            Invoke("RestorePlayerLayer", 0.3f);
+            Invoke("RestorePlayerLayer", 0.4f);
         }
     }
 

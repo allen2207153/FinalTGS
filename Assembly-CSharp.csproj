@@ -67,6 +67,7 @@
     <Compile Include="Assets\Script\Enemy\Enemy.cs" />
     <Compile Include="Assets\Script\item\itemDrop.cs" />
     <Compile Include="Assets\Script\Health\MaxLifeUp.cs" />
+    <Compile Include="Assets\Script\Others\OneWayPlatform.cs" />
     <Compile Include="Assets\Script\Others\RockDestory.cs" />
     <Compile Include="Assets\Script\Player\KnockbackTrigger.cs" />
     <Compile Include="Assets\Script\Others\TrapCollider.cs" />

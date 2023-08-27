@@ -24,7 +24,7 @@ public class DropAttack : MonoBehaviour
     }
     void downAttack()
     {
-        if (Input.GetKey("down") || Input.GetAxis("Vertical") == 1)
+        if (Input.GetKey("down") || Input.GetAxis("Vertical") == -1)
         {
             if (anim.GetBool("Jump") == true || anim.GetBool("Fall") == true)
             {

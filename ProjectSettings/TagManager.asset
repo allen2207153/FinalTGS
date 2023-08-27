@@ -12,6 +12,7 @@ TagManager:
   - Trap
   - Collider
   - HitBoxGameObject
+  - OneWayPlatform
   layers:
   - Default
   - TransparentFX
