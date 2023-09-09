@@ -70,7 +70,7 @@ public class BossPeacock:MonoBehaviour
         isGrounded = Physics2D.OverlapBox(groundCheck.position, boxSize, 0, groundLayer);
         //Patrolling();
         FlipTowardsPlayer();
-
+        JumpAttack();
     }
     public void TakeDamage(int damage)
     {
@@ -107,7 +107,7 @@ public class BossPeacock:MonoBehaviour
         Destroy(gameObject);
     }
 
-    void Patrolling()
+    void PatrollingState()
     {
         if(!checkingGround || checkingWall)
         {
