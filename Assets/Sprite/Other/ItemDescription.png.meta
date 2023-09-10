@@ -115,11 +115,11 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 64
+        width: 256
+        height: 128
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 6, y: 6, z: 7, w: 6}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
@@ -134,10 +134,10 @@ TextureImporter:
       name: ItemDescription_1
       rect:
         serializedVersion: 2
-        x: 144
-        y: 15
-        width: 96
-        height: 33
+        x: 544
+        y: 30
+        width: 192
+        height: 66
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -155,10 +155,10 @@ TextureImporter:
       name: ItemDescription_2
       rect:
         serializedVersion: 2
-        x: 288
-        y: 16
-        width: 64
-        height: 32
+        x: 832
+        y: 32
+        width: 128
+        height: 64
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -176,10 +176,10 @@ TextureImporter:
       name: ItemDescription_3
       rect:
         serializedVersion: 2
-        x: 432
-        y: 24
-        width: 32
-        height: 17
+        x: 1120
+        y: 54
+        width: 64
+        height: 18
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -189,6 +189,27 @@ TextureImporter:
       bones: []
       spriteID: a0c52ddf798ec5442af00899ee0db61d
       internalID: 909678585
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ItemDescription_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 256
+        height: 128
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 36b842c1a3fbc8e4f96ee0c8dc49839f
+      internalID: 2120521987
       vertices: []
       indices: 
       edges: []
@@ -208,6 +229,7 @@ TextureImporter:
       ItemDescription_1: -1193548458
       ItemDescription_2: -2093528055
       ItemDescription_3: 909678585
+      ItemDescription_4: 2120521987
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

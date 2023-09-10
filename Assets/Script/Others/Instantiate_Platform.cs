@@ -7,7 +7,7 @@ public class Instantiate_Platform : MonoBehaviour
 {
     public GameObject Platform;
     public Transform platformPos;
-    
+    [SerializeField] float platformSpeed;
     void Start()
     {
 
@@ -16,17 +16,21 @@ public class Instantiate_Platform : MonoBehaviour
     void Update()
     {
       
-       Transform transform = this.transform;
-       Vector2 pos = transform.position;
-        pos.y -= 0.02f;
+      
+            
+    }
+    void FixedUpdate()
+    {
+        Transform transform = this.transform;
+        Vector2 pos = transform.position;
+        pos.y -= platformSpeed;
         transform.position = pos;
-        if (transform.position.y < -205)
+
+        if (transform.position.y <-202)
         {
             transform.position = platformPos.position;
         }
-            
     }
-    
 }
     
 

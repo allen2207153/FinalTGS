@@ -62,6 +62,9 @@ TagManager:
   - name: BG4
     uniqueID: 1785480319
     locked: 0
+  - name: Waterfall
+    uniqueID: 1330642977
+    locked: 0
   - name: Rock
     uniqueID: 3717608627
     locked: 0
@@ -85,7 +88,4 @@ TagManager:
     locked: 0
   - name: railWay
     uniqueID: 167191095
-    locked: 0
-  - name: Waterfall
-    uniqueID: 1330642977
     locked: 0
