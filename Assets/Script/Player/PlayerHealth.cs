@@ -42,6 +42,10 @@ public class PlayerHealth : MonoBehaviour
             hurtState();
             BlinkPlayer(Blinks, time);
         }
+        if(health > maxHealth)
+        {
+            health = maxHealth;
+        }
         if (health <= 0)
         {
             Death();

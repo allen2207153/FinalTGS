@@ -45,6 +45,8 @@ public class SceneController : MonoBehaviour
         {
             selectImage2.SetActive(false);
             selectImage3.SetActive(false);
+            anim_optionButton.SetTrigger("Normal");
+            anim_exitButton.SetTrigger("Normal");
             StartButton();
         }
 
@@ -53,6 +55,7 @@ public class SceneController : MonoBehaviour
             selectImage1.SetActive(false);
             selectImage3.SetActive(false);
             anim_startButton.SetTrigger("Normal");
+            anim_exitButton.SetTrigger("Normal");
             optionButton();
         }
 
@@ -60,6 +63,7 @@ public class SceneController : MonoBehaviour
         {
             selectImage1.SetActive(false);
             selectImage2.SetActive(false);
+            anim_optionButton.SetTrigger("Normal");
             anim_startButton.SetTrigger("Normal");
             exitButton();
         }

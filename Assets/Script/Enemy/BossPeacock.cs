@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class BossPeacock:MonoBehaviour
 {
@@ -13,6 +14,7 @@ public class BossPeacock:MonoBehaviour
     private SpriteRenderer sr;
     private Color originalColor;
     private PlayerHealth playerHealth;
+    private Vector3 playerPosition;
 
     //Idel Stage
     [Header("Idel")]
@@ -57,7 +59,7 @@ public class BossPeacock:MonoBehaviour
         }
         if (health <= 0)
         {
-            anim.SetTrigger("Die");
+            SceneManager.LoadScene(0);
 
         }
 
@@ -70,6 +72,7 @@ public class BossPeacock:MonoBehaviour
         isGrounded = Physics2D.OverlapBox(groundCheck.position, boxSize, 0, groundLayer);
         //Patrolling();
         FlipTowardsPlayer();
+         JumpAttack();
 
     }
     public void TakeDamage(int damage)
@@ -159,5 +162,11 @@ public class BossPeacock:MonoBehaviour
         Gizmos.DrawWireSphere(wallCheckPoint.position, circleRadius);
         Gizmos.color = Color.green;
         Gizmos.DrawCube(groundCheck.position, boxSize);
+    }
+    void attackPlayer()
+    {
+        playerPosition = player.position - transform.position;
+        playerPosition.Normalize();
+        rb.velocity = playerPosition;
     }
 }
