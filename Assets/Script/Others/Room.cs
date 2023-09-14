@@ -7,6 +7,7 @@ public class Room : MonoBehaviour
 {
     public GameObject virtualCam;
     GameObject Player;
+    [SerializeField]  GameObject Timeline;
     void Start()
     {
     }
@@ -17,6 +18,8 @@ public class Room : MonoBehaviour
             virtualCam.SetActive(true);
             // stop player animation
             // freeze player and input
+
+            Timeline.SetActive(true);
             
         }
     }
