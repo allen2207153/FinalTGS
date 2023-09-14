@@ -48,7 +48,10 @@ public class DropAttack : MonoBehaviour
                 other.GetComponent<Enemy>().TakeDamage(damage);
 
             }
-
+        if (other.gameObject.CompareTag("Bosspeacock"))
+        {
+            other.GetComponent<BossPeacock>().TakeDamage(damage);
         }
+    }
     
 }

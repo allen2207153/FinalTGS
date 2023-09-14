@@ -45,8 +45,8 @@ public class SceneController : MonoBehaviour
         {
             selectImage2.SetActive(false);
             selectImage3.SetActive(false);
-            anim_optionButton.SetTrigger("Normal");
-            anim_exitButton.SetTrigger("Normal");
+            //anim_optionButton.SetTrigger("Normal");
+            //anim_exitButton.SetTrigger("Normal");
             StartButton();
         }
 

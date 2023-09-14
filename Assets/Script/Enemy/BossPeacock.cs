@@ -5,7 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class BossPeacock:MonoBehaviour
 {
-    public int health;
+    [SerializeField] int health;
+    [SerializeField] int maxHealth;
     public int damagePower;
     private Rigidbody2D rb;
     public float flashTime;
@@ -47,11 +48,16 @@ public class BossPeacock:MonoBehaviour
         originalColor = sr.color;
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+        health = maxHealth;
     }
 
     // Update is called once per frame
     public void Update()
     {
+        if(health <= maxHealth /2)
+        {
+            anim.SetBool("Phase2",true);
+        }
         if (health <= 1)
         {
 
@@ -70,9 +76,7 @@ public class BossPeacock:MonoBehaviour
         checkingGround = Physics2D.OverlapCircle(groundCheckPoint.position, circleRadius, groundLayer);
         checkingWall = Physics2D.OverlapCircle(wallCheckPoint.position, circleRadius, groundLayer);
         isGrounded = Physics2D.OverlapBox(groundCheck.position, boxSize, 0, groundLayer);
-        //Patrolling();
-        FlipTowardsPlayer();
-         JumpAttack();
+        
 
     }
     public void TakeDamage(int damage)
@@ -104,13 +108,13 @@ public class BossPeacock:MonoBehaviour
         }
     }
 
-    void Destroy()
+    public void Destroy()
     {
         
         Destroy(gameObject);
     }
 
-    void Patrolling()
+    public void Patrolling()
     {
         if(!checkingGround || checkingWall)
         {
@@ -126,7 +130,7 @@ public class BossPeacock:MonoBehaviour
         rb.velocity = new Vector2(moveSpeed * moveDirection, rb.velocity.y);
     }
 
-    void JumpAttack()
+    public void JumpAttack()
     {
         float distanceFromPlayer = player.position.x - transform.position.x;
 
@@ -136,7 +140,7 @@ public class BossPeacock:MonoBehaviour
         }
     }
 
-    void FlipTowardsPlayer()
+    public void FlipTowardsPlayer()
     {
         float playerPosition = player.position.x - transform.position.x;
         if(playerPosition <0 && !facingRight)
@@ -149,7 +153,7 @@ public class BossPeacock:MonoBehaviour
         }
     }
 
-    void Flip()
+    public void Flip()
     {
         moveDirection *= -1;
         facingRight = !facingRight;
@@ -163,10 +167,10 @@ public class BossPeacock:MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawCube(groundCheck.position, boxSize);
     }
-    void attackPlayer()
+    public void attackPlayer()
     {
         playerPosition = player.position - transform.position;
-        playerPosition.Normalize();
-        rb.velocity = playerPosition;
+        
+        anim.SetTrigger("HeadAttack");
     }
 }

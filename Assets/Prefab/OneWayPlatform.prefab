@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 4951964527683161990}
   - component: {fileID: 2699595827383863586}
   - component: {fileID: 7879989226587407725}
-  m_Layer: 15
+  m_Layer: 16
   m_Name: OneWayPlatform
   m_TagString: OneWayPlatform
   m_Icon: {fileID: 0}
@@ -32,7 +32,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 41
+  m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &4951964527683161990
 SpriteRenderer:
@@ -73,7 +73,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 632931491
-  m_SortingLayer: 7
+  m_SortingLayer: 8
   m_SortingOrder: 0
   m_Sprite: {fileID: 1409656185, guid: 86445204a067fc74c8460185cb3b36e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}

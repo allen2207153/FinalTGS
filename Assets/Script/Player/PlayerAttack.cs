@@ -32,7 +32,7 @@ public class PlayerAttack : MonoBehaviour
     void Attack()
     {
        
-        if (Input.GetButtonDown("Attack") && anim.GetBool("isDead") !=true)
+        if (Input.GetButtonDown("Attack") && anim.GetBool("isDead") !=true && anim.GetBool("hurtZone") != true)
         {
             
             if (attackRate >= attackTime)
@@ -74,7 +74,7 @@ public class PlayerAttack : MonoBehaviour
         {
             other.GetComponent<Enemy>().TakeDamage(damage);
         }
-        if (other.gameObject.CompareTag("Boss"))
+        if (other.gameObject.CompareTag("Bosspeacock"))
         {
             other.GetComponent<BossPeacock>().TakeDamage(damage);
         }

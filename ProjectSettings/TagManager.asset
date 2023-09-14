@@ -13,6 +13,7 @@ TagManager:
   - Collider
   - HitBoxGameObject
   - OneWayPlatform
+  - Bosspeacock
   layers:
   - Default
   - TransparentFX
