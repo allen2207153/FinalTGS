@@ -21,10 +21,15 @@ public class Boss_Walk : StateMachineBehaviour
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         Vector2 target = new Vector2(player.position.x, rb.position.y);
-        Vector2 newPos =  Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
+        Vector2 newPos = Vector2.MoveTowards(rb.position, target, speed * Time.deltaTime);
         rb.MovePosition(newPos);
-        bossPeacock.FlipTowardsPlayer();
        
+            
+            bossPeacock.FlipTowardsPlayer();
+
+        
+            
+
     }
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state

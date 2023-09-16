@@ -8,8 +8,11 @@ public class Room : MonoBehaviour
     public GameObject virtualCam;
     GameObject Player;
     [SerializeField]  GameObject Timeline;
+    
+
     void Start()
     {
+        
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -20,7 +23,6 @@ public class Room : MonoBehaviour
             // freeze player and input
 
             Timeline.SetActive(true);
-            
         }
     }
     private void OnTriggerExit2D(Collider2D other)

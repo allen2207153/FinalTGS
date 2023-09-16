@@ -15,19 +15,17 @@ public class SceneController : MonoBehaviour
     public Animator anim_optionButton;
     public Animator anim_exitButton;
 
-
+   
     public GameObject SceneMask;
 
     private int selectButton = 0;
     public void Start()
     {
+        
         anim_startButton = GetComponentInChildren<Animator>();
+        
     }
-    public void startGame()
-    {
-
-
-    }
+    
 
 
     public void option()

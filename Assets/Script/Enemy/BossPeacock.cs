@@ -17,6 +17,8 @@ public class BossPeacock:MonoBehaviour
     private PlayerHealth playerHealth;
     private Vector3 playerPosition;
 
+    [SerializeField] AudioSource knockbackEfffect;
+
     //Idel Stage
     [Header("Idel")]
     [SerializeField] float idelMoveSpeed;
@@ -40,6 +42,8 @@ public class BossPeacock:MonoBehaviour
     [SerializeField] Transform groundCheck;
     [SerializeField] Vector2 boxSize;
     private bool isGrounded;
+
+
 
     public void Start()
     {
@@ -76,7 +80,15 @@ public class BossPeacock:MonoBehaviour
         checkingGround = Physics2D.OverlapCircle(groundCheckPoint.position, circleRadius, groundLayer);
         checkingWall = Physics2D.OverlapCircle(wallCheckPoint.position, circleRadius, groundLayer);
         isGrounded = Physics2D.OverlapBox(groundCheck.position, boxSize, 0, groundLayer);
-        
+        if(checkingGround || isGrounded)
+        {
+            anim.SetBool("isGround", true);
+        }
+        else
+        {
+            anim.SetBool("isGround", false);
+        }
+
 
     }
     public void TakeDamage(int damage)
@@ -102,9 +114,16 @@ public class BossPeacock:MonoBehaviour
         {
             if (playerHealth != null)
             {
+                knockbackEfffect.Play();
                 playerHealth.DamagePlayer(damagePower);
                 other.transform.position = new Vector2(other.transform.position.x - 20 * Time.deltaTime, other.transform.position.y + 20 * Time.deltaTime);
             }
+            
+        }
+        if (other.gameObject.CompareTag("Player") &&anim.GetBool("Walk") == true)
+        {
+            anim.SetBool("Walk", false);
+            anim.SetTrigger("HeadAttack");
         }
     }
 
@@ -134,9 +153,12 @@ public class BossPeacock:MonoBehaviour
     {
         float distanceFromPlayer = player.position.x - transform.position.x;
 
-        if(isGrounded)
-        {
+      
+            anim.SetBool("jump", false);
             rb.AddForce(new Vector2(distanceFromPlayer, jumpHeight), ForceMode2D.Impulse);
+            if(isGrounded)
+        {
+            anim.SetBool("jump", false);
         }
     }
 
@@ -173,4 +195,28 @@ public class BossPeacock:MonoBehaviour
         
         anim.SetTrigger("HeadAttack");
     }
+
+    void randomStatePicker()
+    {
+        int randomState = Random.Range(0, 2);
+        if(randomState == 0)
+        {
+            anim.SetBool("jump", true);
+            anim.SetBool("Walk", false);
+        }
+       if (randomState == 1)
+        {
+            anim.SetBool("Walk", true);
+        }
+    }
+    public void headAttack()
+    {
+        float playerDistance = Mathf.Abs(player.position.x - transform.position.x);
+        if (playerDistance < 2 && anim.GetBool("isGround") == true)
+        {
+            anim.SetBool("HeadAttack",true);
+            anim.SetBool("Walk", false);
+        }
+    }
+    
 }

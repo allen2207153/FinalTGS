@@ -50,6 +50,10 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float gravityScale = 5;
     [SerializeField] float fallGravityScale = 15;
 
+    [SerializeField] private AudioSource jumpEffect;
+    [SerializeField] private AudioSource downAttackEffect;
+
+
     public float drillForce = 800;
     void Start()
     {
@@ -141,6 +145,7 @@ public class PlayerController : MonoBehaviour
             if (Input.GetButtonDown("Jump")&&isGround && rb.velocity.y < 0.01f)
             {
                  anim.SetBool("Jump", true);
+                jumpEffect.Play();
                 rb.gravityScale = gravityScale;
                 float jumpForce = Mathf.Sqrt(jumpHeight * (Physics2D.gravity.y * rb.gravityScale) * -2) * rb.mass;
                 rb.AddForce(Vector2.up * jumpForce, ForceMode2D.Impulse);
@@ -285,6 +290,7 @@ public class PlayerController : MonoBehaviour
             Collider2D c = Physics2D.OverlapBox(downHitBox.position, boxSize, 0f, LayerMask.GetMask("Enemy") | LayerMask.GetMask("Rock") | LayerMask.GetMask("latern")) ;
             if (c != null)
             {
+                downAttackEffect.Play();
                 rb.velocity = new Vector2(rb.velocity.x, 0);
                 rb.AddForce(new Vector2(0, drillForce));
                 GetComponent<Better>().fallMultiplier = 2f;

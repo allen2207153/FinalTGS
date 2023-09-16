@@ -8,6 +8,7 @@ public class UnlockSkill : MonoBehaviour
     public GameObject dropHitBox;
     GameObject player;
     bool sceneOpen;
+    [SerializeField] private AudioSource itemEffect;
     void Start()
     {
          player = GameObject.Find("Player");
@@ -31,6 +32,7 @@ public class UnlockSkill : MonoBehaviour
         {
             
             dropHitBox.GetComponent<DropAttack>().enabled = true;
+            itemEffect.Play();
             ItemDescription.SetActive(true);
             player.GetComponent<PlayerController>().FreezeInput(true);
             player.GetComponent<PlayerController>().FreezePlayer(true);

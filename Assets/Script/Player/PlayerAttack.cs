@@ -12,6 +12,7 @@ public class PlayerAttack : MonoBehaviour
     private Animator anim;
     private PolygonCollider2D collider2D;
     GameObject player;
+    [SerializeField] private AudioSource attackEffect;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +40,7 @@ public class PlayerAttack : MonoBehaviour
             {
                 StartCoroutine(StartAttack());
                 anim.SetTrigger("Attack");
+                attackEffect.Play();
                 anim.SetBool("isAttack", true);
                 attackRate = 0;
                

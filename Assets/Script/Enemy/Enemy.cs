@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     private Color originalColor;
     private  PlayerHealth playerHealth;
 
+    [SerializeField] private AudioSource knockbackEffect;
+
 
     public static event Action OnEnemyDie;
     public void Start()
@@ -63,6 +65,7 @@ public class Enemy : MonoBehaviour
         {
             if(playerHealth != null) 
             {
+                knockbackEffect.Play();
                 playerHealth.DamagePlayer(damagePower);
                 other.transform.position = new Vector2(other.transform.position.x - 50 * Time.deltaTime  , other.transform.position.y + 50* Time.deltaTime);
             }
