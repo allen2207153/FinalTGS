@@ -88,6 +88,7 @@
     <Compile Include="Assets\Script\LootBag.cs" />
     <Compile Include="Assets\Script\Player\DrillDown.cs" />
     <Compile Include="Assets\Jump.cs" />
+    <Compile Include="Assets\pickCrystal.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyBehaviour.cs" />
     <Compile Include="Assets\Script\Player\PlayerController.cs" />
     <Compile Include="Assets\Script\Enemy\EnemyBat.cs" />

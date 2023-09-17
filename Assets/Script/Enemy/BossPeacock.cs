@@ -43,6 +43,7 @@ public class BossPeacock:MonoBehaviour
     [SerializeField] Vector2 boxSize;
     private bool isGrounded;
 
+    private bool dropItem = false;
 
 
     public void Start()
@@ -60,17 +61,22 @@ public class BossPeacock:MonoBehaviour
     {
         if(health <= maxHealth /2)
         {
-            anim.SetBool("Phase2",true);
+            //anim.SetBool("Phase2",true);
         }
         if (health <= 1)
         {
 
             flashTime = 0;
         }
-        if (health <= 0)
+        if (health <= 0 && dropItem ==false)
         {
-            SceneManager.LoadScene(0);
 
+            anim.SetBool("Die", true);
+            GetComponent<Collider2D>().enabled = false;
+            dropItem = true;
+            rb.AddForce(new Vector2(400, 600));
+            Time.timeScale = 0.4f;
+            StartCoroutine(slowTime());
         }
 
     }
@@ -217,6 +223,11 @@ public class BossPeacock:MonoBehaviour
             anim.SetBool("HeadAttack",true);
             anim.SetBool("Walk", false);
         }
+    }
+    IEnumerator slowTime()
+    {
+        yield return new WaitForSeconds(1.5f);
+        Time.timeScale = 1;
     }
     
 }
