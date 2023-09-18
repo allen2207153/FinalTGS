@@ -44,7 +44,7 @@ public class BossPeacock:MonoBehaviour
     private bool isGrounded;
 
     private bool dropItem = false;
-
+    public GameObject clearTimeline;
 
     public void Start()
     {
@@ -70,13 +70,15 @@ public class BossPeacock:MonoBehaviour
         }
         if (health <= 0 && dropItem ==false)
         {
-
+            anim.SetBool("Walk", false);
+            rb.velocity = Vector3.zero;
             anim.SetBool("Die", true);
             GetComponent<Collider2D>().enabled = false;
             dropItem = true;
-            rb.AddForce(new Vector2(400, 600));
+            rb.AddForce(new Vector2(800, 700));
             Time.timeScale = 0.4f;
             StartCoroutine(slowTime());
+            
         }
 
     }
@@ -226,8 +228,9 @@ public class BossPeacock:MonoBehaviour
     }
     IEnumerator slowTime()
     {
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.7f);
         Time.timeScale = 1;
+        clearTimeline.SetActive(true);
     }
     
 }

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -55,13 +56,21 @@ public class PlayerController : MonoBehaviour
 
 
     public float drillForce = 800;
+
+    [Header ("Music")]
+    public AudioClip newTrack;
+    private AudioManager theAM;
+
+    [Header ("Scene")]
+    public GameObject endScene;
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         myfeet = GetComponent<CircleCollider2D>();
         playerGravity = rb.gravityScale;
-        
+        theAM = FindObjectOfType<AudioManager>();
+
     }
 
     // Update is called once per frame
@@ -373,7 +382,31 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.green;
         Gizmos.DrawCube(downHitBox.position, boxSize);
     }
+    void OnTriggerEnter2D(Collider2D other)
+    {
 
+        if (other.gameObject.CompareTag("Crystal"))
+        {
+            anim.SetTrigger("getCrystal");
+            FreezePlayer(true);
+            FreezeInput(true);
+            theAM.ChangeBGM(newTrack);
+            StartCoroutine(stop());
+        }
+    }
+    IEnumerator stop()
+    {
+        yield return new WaitForSeconds(3.2f);
+        theAM.stopMusic();
+        endScene.SetActive(true);
+        StartCoroutine(changeScene());
+    }
+
+    IEnumerator changeScene()
+    {
+        yield return new WaitForSeconds(1.3f);
+        SceneManager.LoadScene("ending");
+    }
 }
 
 

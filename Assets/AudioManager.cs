@@ -36,4 +36,8 @@ public class AudioManager : MonoBehaviour
         yield return new WaitForSeconds(1);
         audioSrc.Play();
     }
+    public void stopMusic()
+    {
+        audioSrc?.Stop();
+    }
 }

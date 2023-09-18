@@ -97,6 +97,7 @@
     <Compile Include="Assets\Script\Enemy\EnemySlime.cs" />
     <Compile Include="Assets\Boss_Jump.cs" />
     <Compile Include="Assets\Script\Player\DropAttack.cs" />
+    <Compile Include="Assets\changeScene.cs" />
     <Compile Include="Assets\Script\Loots.cs" />
     <Compile Include="Assets\Boss_HeadAttack.cs" />
     <Compile Include="Assets\Better.cs" />
